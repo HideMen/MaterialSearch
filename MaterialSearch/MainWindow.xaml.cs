@@ -23,13 +23,15 @@ namespace MaterialSearch
         public MainWindow()
         {
             InitializeComponent();
+            //Инициализируем Базу данных
             md = new MaterialsDB();
             md.initBD();
             md.bdConnect();
         }
-
+        //Поиск в БД
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
+            
             DataTable dTable = md.bdSearch(widthText.Text, lengthText.Text);
             if (dTable == null)
                 return;
@@ -37,6 +39,7 @@ namespace MaterialSearch
 
             for (int i = 0; i < dTable.Rows.Count; i++)
             {
+                //Добавляем первый и второй эллемент из БД в наш ListView в цикле пока данные не закончатся
                 ListViewItem item = new ListViewItem
                 {
                     Width = dTable.Rows[i].ItemArray[1].ToString(),
@@ -46,12 +49,13 @@ namespace MaterialSearch
 
             }
         }
-
+        //добавление в БД
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             md.bdAddMaterials(widthAddText.Text, lengthAddText.Text);
         }
     }
+    
     public class ListViewItem
     {
         public string Width { get; set; }
