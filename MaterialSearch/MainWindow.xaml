@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialSearch"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="База остатков метала" Height="344.666" Width="402">
+    <Grid Margin="0,0,2,2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="19*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="SearchButton" Content="Поиск" HorizontalAlignment="Left" Margin="55,106,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="SearchButton_Click"/>
+        <TextBox x:Name="widthText" HorizontalAlignment="Left" Height="23" Margin="53,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="lengthText" HorizontalAlignment="Left" Height="23" Margin="53,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Label x:Name="widthLabel" Content="Ширина" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" FontSize="8"/>
+        <Label x:Name="lengthLabel" Content="Длинна" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" FontSize="8"/>
+        <Label x:Name="HeadSearchLabel" Content="Поиск в базе" HorizontalAlignment="Left" Margin="12,3,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="90" FontSize="10"/>
+        <Label x:Name="HeadAddLabel" Content="Добавить в базу" HorizontalAlignment="Left" Margin="144,3,0,0" VerticalAlignment="Top" Width="90" FontSize="10" Grid.Column="1"/>
+        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="189,106,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="AddButton_Click"/>
+        <TextBox x:Name="widthAddText" HorizontalAlignment="Left" Height="23" Margin="187,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <TextBox x:Name="lengthAddText" HorizontalAlignment="Left" Height="23" Margin="187,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <Label x:Name="widthAddLabel" Content="Ширина" HorizontalAlignment="Left" Margin="144,36,0,0" VerticalAlignment="Top" FontSize="8" Grid.Column="1"/>
+        <Label x:Name="lengthAddLabel" Content="Длинна" HorizontalAlignment="Left" Margin="144,71,0,0" VerticalAlignment="Top" FontSize="8" Grid.Column="1"/>
+        <ListView x:Name="ListBDview" HorizontalAlignment="Left" Height="165" Margin="12,137,0,0" VerticalAlignment="Top" Width="370" Grid.ColumnSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Width}" Width="80">Ширина</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Length}" Width="100">Длинна</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
     </Grid>
 </Window>
