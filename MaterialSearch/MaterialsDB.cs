@@ -85,7 +85,6 @@ namespace MaterialSearch
 
         public DataTable bdSearch(string width, string length)
         {
-           
             DataTable dTable = new DataTable();
             String sqlQuery;
             //проверяем соединение с БД
